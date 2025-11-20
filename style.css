@@ -19,7 +19,6 @@
   --heading-weight-medium: 600;
   --heading-letter-spacing-tight: -0.02em;
 }
-.blog-grid {
 *::after {
   box-sizing: border-box;
 }
