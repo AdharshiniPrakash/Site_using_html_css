@@ -6,7 +6,7 @@
   --surface: #f8fafc;
   --muted: #6b7280;
   --text: #0f172a;
-  --primary: #ff7a45; 
+  --primary: #ff7a45;
   --accent: #ffb27d;
   --white: #ffffff;
   --black: #000000;
@@ -148,7 +148,7 @@ p.muted {
   font-size: 0.95rem;
   letter-spacing: 0.02em;
 }
-.nav-list li a:hover {
+.nav-list li a:hover, .nav-list li a:focus-within {
   text-decoration: underline;
 }
 .nav-toggle {
@@ -168,7 +168,7 @@ p.muted {
   font-weight: 500;
   padding: 5px 10px;
 }
-.link-muted:hover {
+.link-muted:hover, .link-muted:focus {
   border: 1px solid var(--primary);
   border-radius: 5px;
   transition: all 0.1s ease-in-out;
@@ -190,7 +190,7 @@ p.muted {
   border-radius: 5px;
   padding: 0.55rem 2rem;
 }
-header .btn.primary:hover {
+header .btn.primary:hover, header .btn.primary:focus {
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
 }
@@ -274,15 +274,15 @@ img.hero-main {
 
 .float-cards {
   position: absolute;
-  inset: 0; 
-  pointer-events: none; 
+  inset: 0;
+  pointer-events: none;
   max-width: 520px;
   margin: auto;
 }
 .floating-card {
   position: absolute;
   background: var(--white);
-  pointer-events: auto; 
+  pointer-events: auto;
   padding: 0.55rem 0.7rem;
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(12, 20, 30, 0.12);
@@ -309,7 +309,6 @@ img.hero-main {
   color: var(--muted);
 }
 
-
 .floating-card.pos1 {
   top: 15%;
   left: 4%;
@@ -327,8 +326,7 @@ img.hero-main {
   transform: translate(-35%, -55%);
 }
 
-
-.floating-card:hover {
+.floating-card:hover, .floating-card:focus-within {
   transform: translateY(-8px);
   box-shadow: 0 18px 36px rgba(12, 20, 30, 0.14);
 }
@@ -396,12 +394,10 @@ span.primary {
   transition: transform 320ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 200ms ease;
 }
 
-
 .hero-right:hover .planes,
 .hero-right:focus-within .planes {
   transform: translateZ(0) translateY(-8px);
 }
-
 
 @media (min-width: 48rem) and (max-width: 64rem) {
   .hero-decor .semi-circle {
@@ -410,7 +406,6 @@ span.primary {
     right: -6%;
   }
 }
-
 
 @media (max-width: 47.99rem) {
   .hero-decor .semi-circle {
@@ -422,17 +417,14 @@ span.primary {
 }
 
 .search-grid {
-  width: 60%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+  width: max-content;
   background: var(--white);
   margin: 2rem auto;
   padding: 1rem 2rem;
   border-radius: var(--radius);
-}
-
-.search-grid {
-  display: flex;
-  justify-content: center;
-  margin-top: 1.25rem;
 }
 .search-card {
   display: flex;
@@ -476,7 +468,6 @@ span.primary {
   color: var(--text);
 }
 
-
 .search-field > select,
 .search-field > input[type="date"] {
   max-height: 0;
@@ -494,7 +485,6 @@ span.primary {
   opacity: 1;
   pointer-events: auto;
 }
-
 
 .search-toggle {
   cursor: pointer;
@@ -517,7 +507,6 @@ span.primary {
   transform: rotate(180deg);
 }
 
-
 @media (max-width: 47.99rem) {
   .search-card {
     flex-direction: column;
@@ -536,7 +525,6 @@ span.primary {
     font-size: var(--h1-size-lg);
   }
 }
-
 
 .cards-row {
   display: grid;
@@ -558,6 +546,11 @@ span.primary {
   gap: 1rem;
   align-items: flex-start;
   flex-direction: column;
+}
+.card:hover, .card:focus-within {
+  box-shadow: 5px 5px 12px #bcbdc0;
+  transform: scale(1.01) translateZ(5px);
+  transition: all 0.8s ease-in-out;
 }
 
 .card:nth-child(2) {
@@ -583,7 +576,6 @@ span.primary {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
 
 .deals {
   padding: 2rem 0;
@@ -624,6 +616,7 @@ span.primary {
   height: 100%;
   background: rgba(0, 0, 0, 0.35);
   z-index: 5;
+  display: none;
 }
 .deal-card h3 {
   margin: 0.6rem;
@@ -658,7 +651,6 @@ span.primary {
   }
 }
 
-
 .rating {
   display: inline-flex;
   align-items: center;
@@ -692,8 +684,8 @@ span.primary {
   z-index: 10;
 }
 
-.deal-card:hover .deal-image img:after,
-.deal-card:focus-within .deal-image img:after {
+.deal-card:hover .deal-image:after,
+.deal-card:focus-within .deal-image:after {
   display: inline-flex;
 }
 
@@ -792,7 +784,6 @@ span.primary {
   }
 }
 
-
 .testimonials > .container {
   position: relative;
   display: flex;
@@ -847,7 +838,7 @@ span.primary {
   top: 3rem;
   left: 2rem;
   opacity: 0.7;
-  border: solid 2px #aaa;
+  border: solid 1px #bbb;
   width: 25rem;
   height: 13rem;
 }
@@ -867,6 +858,7 @@ span.primary {
   z-index: 10;
   width: 25rem;
   height: 13rem;
+  box-shadow: 2px 2px 5px #bbb;
 }
 .testimonial-quote::after {
   content: "";
@@ -917,7 +909,7 @@ span.primary {
 
 @media (max-width: 47.99rem) {
   .testimonials-plane {
-    display: none; 
+    display: none;
   }
   .testimonials-grid {
     grid-template-columns: 1fr;
@@ -952,7 +944,6 @@ span.primary {
   color: var(--muted);
   font-size: 0.85rem;
 }
-
 
 .subscribe-card {
   background: var(--primary);
@@ -991,8 +982,11 @@ span.primary {
   width: 50%;
   margin: 2rem auto;
   background: var(--white);
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
+  justify-content: space-between;
+  z-index: 10;
+  position: relative;
 }
 .subscribe-input {
   display: flex;
@@ -1008,7 +1002,6 @@ span.primary {
 .subscribe-form button {
   white-space: nowrap;
 }
-
 
 @media (max-width: 64rem) {
   .subscribe-form {
@@ -1032,7 +1025,6 @@ span.primary {
     justify-content: center;
   }
 }
-
 
 .site-footer {
   padding: 2.5rem 0 1.5rem 0;
@@ -1079,12 +1071,11 @@ span.primary {
 .social-img {
   color: inherit;
 }
-.social-link:hover {
+.social-link:hover, .social-link:focus {
   background: var(--primary);
   transform: translateY(-3px);
   color: var(--white);
 }
-
 
 .social-link::before {
   content: "";
@@ -1110,13 +1101,12 @@ span.primary {
   mask-image: url("resources/instagram.svg");
 }
 
-
 .social-link:hover::before,
 .social-link:focus-visible::before {
   background-color: var(--white);
 }
 
-.social-link:hover {
+.social-link:hover, .social-link:focus {
   box-shadow: 0 6px 18px rgba(12, 20, 30, 0.06);
   transform: translateY(-3px);
   background-color: var(--primary);
@@ -1149,6 +1139,9 @@ span.primary {
   color: var(--muted);
   text-decoration: none;
 }
+.footer-links-list a:hover, .footer-links-list a:focus-within {
+  text-decoration: underline;
+}
 
 @media (min-width: 48rem) {
   .footer-grid {
@@ -1168,7 +1161,6 @@ span.primary {
   }
 }
 
-
 .footer-bottom {
   border-top: 1px solid rgba(15, 23, 42, 0.06);
   padding-top: 1rem;
@@ -1187,7 +1179,7 @@ span.primary {
   text-decoration: none;
   font-size: 0.95rem;
 }
-.footer-terms a:hover {
+.footer-terms a:hover, .footer-terms a:focus-within {
   color: var(--primary);
 }
 
@@ -1235,7 +1227,7 @@ span.primary {
   }
 
   .plans-coconut-tree {
-    display: none; 
+    display: none;
   }
 
   .plan-card > img {
@@ -1254,7 +1246,7 @@ span.primary {
   .testimonials > .container {
     width: 85%;
     gap: 1.5rem;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     align-items: stretch;
   }
@@ -1303,7 +1295,7 @@ span.primary {
   }
 
   .testimonial-quote::after {
-    display: none; 
+    display: none;
   }
 
   .testimonial-last {
@@ -1319,7 +1311,7 @@ span.primary {
   }
 
   .deal-card {
-    width: auto; 
+    width: auto;
     margin: 0 auto;
   }
 
@@ -1354,7 +1346,7 @@ span.primary {
   }
 
   .deal-image img {
-    height: auto; 
+    height: auto;
   }
 
   .deal-head,
