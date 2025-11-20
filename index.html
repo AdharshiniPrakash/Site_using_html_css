@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel — Landing</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta name="color-scheme" content="light dark">
+    <meta name="description" content="Discover exciting travel deals, vacation plans and join our travel community.">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="/" aria-label="Homepage">
+                <img src="resources/logo.svg" alt="Trabook logo" width="140">
+            </a>
+
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+                <ul id="primary-menu" class="nav-list">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Destination</a></li>
+                    <li><a href="#">Tour</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a class="link-muted" href="#login">Login</a>
+                <a class="btn primary" href="#signup">Sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="content">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="container hero-grid">
+                <div class="hero-left">
+                    <h1 id="hero-heading">Get started your exciting <span class="accent">journey</span> with us.</h1>
+                    <p class="lead">A team of experienced tourism professionals will provide you the best advice and
+                        tips for your desired place.</p>
+                    <p>
+                        <a class="btn outline" href="#deals">Discover Now</a>
+                    </p>
+
+
+                </div>
+
+                <div class="hero-right" aria-hidden="true">
+                    <img class="hero-main" src="resources/hero-image.svg" alt="Traveler with luggage illustration"
+                        loading="lazy">
+                    <!-- Floating info cards (icons + short text) -->
+                    <div class="float-cards">
+                        <div class="floating-card pos1">
+                            <img src="resources/award-icon.svg" alt="award icon" aria-hidden="true" />
+                            <div>
+                                <h4>Best Tour Awards</h4>
+                            </div>
+                        </div>
+
+                        <div class="floating-card pos2">
+                            <img src="resources/google-maps-icon.svg" alt="location icon" aria-hidden="true" />
+                            <div>
+                                <h4>Explore</h4>
+                                <p class="muted small">Every corner of the world with us</p>
+                            </div>
+                        </div>
+
+                        <div class="floating-card pos3">
+                            <img src="resources/star-icon.svg" alt="star icon" aria-hidden="true" />
+                            <div>
+                                <h4>27K+</h4>
+                                <p class="muted small">Customers Reviewed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="search-grid">
+                <form class="search-card" role="search" aria-label="Search trips">
+                    <div class="search-field">
+                        <button type="button" class="search-toggle" aria-controls="location"
+                            aria-expanded="false">Location</button>
+                        <div class="subtext muted">Where are you going</div>
+                        <select id="location" name="location" aria-label="Location">
+                            <option value="">Choose a destination</option>
+                            <option value="agra">Agra (Taj Mahal)</option>
+                            <option value="jaipur">Jaipur (Pink City)</option>
+                            <option value="varanasi">Varanasi</option>
+                            <option value="goa">Goa</option>
+                            <option value="kerala">Kerala (Backwaters)</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="delhi">New Delhi</option>
+                            <option value="ranthambore">Ranthambore</option>
+                            <option value="leh">Leh-Ladakh</option>
+                            <option value="darjeeling">Darjeeling</option>
+                        </select>
+                    </div>
+
+                    <div class="search-field">
+                        <button type="button" class="search-toggle" aria-controls="travelDate"
+                            aria-expanded="false">Date</button>
+                        <div class="subtext muted">When will you go</div>
+                        <input type="date" name="travelDate" id="travelDate" aria-label="Date" />
+                    </div>
+
+                    <div class="search-field">
+                        <button type="button" class="search-toggle" aria-controls="guests"
+                            aria-expanded="false">Guests</button>
+                        <div class="subtext muted">Number of guests</div>
+                        <select id="guests" name="guests" aria-label="Guests">
+                            <option value="">Guests</option>
+                            <!-- generate 1..20 -->
+                            <option value="1">1 </option>
+                            <option value="2">2 </option>
+                            <option value="3">3 </option>
+                            <option value="4">4 </option>
+                            <option value="5">5 </option>
+                            <option value="6">6 </option>
+                            <option value="7">7 </option>
+                            <option value="8">8 </option>
+                            <option value="9">9 </option>
+                            <option value="10">10 </option>
+                        </select>
+                    </div>
+
+                    <button class="btn primary" type="submit">Explore Now</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="features" class="features" aria-labelledby="features-title">
+            <div class="container">
+                <div class="features-header">
+                    <h2 id="features-title">Things you need <span class="primary">to do</span></h2>
+                    <img class="features-plane" src="resources/planes-section2.svg" alt="" aria-hidden="true">
+                </div>
+                <p class="muted">We ensure that you'll embark on a perfectly planned,<br> safe vacation at a price you
+                    can
+                    afford.</p>
+                <br>
+                <ul class="cards-row">
+                    <li class="card">
+                        <img src="resources/signup-icon.svg" alt="Sign up icon">
+                        <h3>Sign Up</h3>
+                        <p class="muted">Comprehensive all-in-one assistance with planning and processing.</p>
+                    </li>
+                    <li class="card">
+                        <img src="resources/money-icon.svg" alt="Value icon">
+                        <h3>Worth of Money</h3>
+                        <p class="muted">After successful booking then look for our exclusive deals & pricing.</p>
+                    </li>
+                    <li class="card">
+                        <img src="resources/location-icon.svg" alt="Travel icon">
+                        <h3>Exciting Travel</h3>
+                        <p class="muted">Start and explore a wide range of exciting travel experiences.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="deals" class="deals" aria-labelledby="deals-title">
+            <div class="container" style="position: relative;">
+                <h2 id="deals-title">Exclusive <span class="primary">deals & discounts</span></h2>
+                <p class="muted">Discover our fantastic early booking discounts<br> & start planning your journey.</p>
+
+                <div class="carousel">
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="resources/madrid.png" alt="Madrid">
+                            <a class="btn primary book-now" href="#">Book Now</a>
+                        </div>
+                        <div class="deal-head">
+                            <h3>Madrid</h3>
+                            <div class="rating" aria-label="Rating 4.8 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.8</span>
+                            </div>
+                        </div>
+                        <p class="meta">
+                            <span><img src="resources/location-grey.svg" alt="location" />Spain</span>
+                            <span><s class="price-old">$1300</s><span class="highlight">$999</span> </span>
+                        </p>
+                    </article>
+
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="resources/firenze.png" alt="Firenze">
+                            <a class="btn primary book-now" href="#">Book Now</a>
+                        </div>
+                        <div class="deal-head">
+                            <h3>Firenze</h3>
+                            <div class="rating" aria-label="Rating 4.6 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.6</span>
+                            </div>
+                        </div>
+                        <p class="meta">
+                            <span><img src="resources/location-grey.svg" alt="location" />Italy</span>
+                            <span><s class="price-old">$1150</s><span class="highlight">$899</span></span>
+                        </p>
+                    </article>
+
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="resources/paris.png" alt="Paris">
+                            <a class="btn primary book-now" href="#">Book Now</a>
+                        </div>
+                        <div class="deal-head">
+                            <h3>Paris</h3>
+                            <div class="rating" aria-label="Rating 4.7 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.7</span>
+                            </div>
+                        </div>
+                        <p class="meta">
+                            <span><img src="resources/location-grey.svg" alt="location" />France</span>
+                            <span><s class="price-old">$1350</s><span class="highlight">$1099</span></span>
+                        </p>
+                    </article>
+
+                    <article class="deal-card">
+                        <div class="deal-image">
+                            <img src="resources/london.png" alt="London">
+                            <a class="btn primary book-now" href="#">Book Now</a>
+                        </div>
+                        <div class="deal-head">
+                            <h3>London</h3>
+                            <div class="rating" aria-label="Rating 4.7 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.8</span>
+                            </div>
+                        </div>
+                        <p class="meta">
+                            <span><img src="resources/location-grey.svg" alt="location" />UK</span>
+                            <span><s class="price-old">$1350</s><span class="highlight">$1099</span></span>
+                        </p>
+                    </article>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-prev" aria-label="Previous deals"
+                        style="width:36px; height:36px; border-radius:50%; border:0; background:#fff; box-shadow:0 6px 18px rgba(12,20,30,0.06); display:inline-flex; align-items:center; justify-content:center;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6" stroke="#ff7a45" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="carousel-next" aria-label="Next deals"
+                        style="width:36px; height:36px; border-radius:50%; border:0; background:var(--primary); color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(255,122,69,0.18);">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="plans" aria-labelledby="plans-title">
+            <div class="container">
+                <img class="plans-coconut-tree" src="resources/coconut-trees.svg" alt="" aria-hidden="true">
+                <h2 id="plans-title">Best <span class="primary">vacation plan</span></h2>
+                <p class="muted">Plan your perfect vacation with our travel agency. Choose <br>among hundreds of
+                    all-inclusive offers.</p>
+                <div class="carousel-controls right-position">
+                    <button class="carousel-prev" aria-label="Previous deals"
+                        style="width:36px; height:36px; border-radius:50%; border:0; background:#fff; box-shadow:0 6px 18px rgba(12,20,30,0.06); display:inline-flex; align-items:center; justify-content:center;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6" stroke="#ff7a45" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="carousel-next" aria-label="Next deals"
+                        style="width:36px; height:36px; border-radius:50%; border:0; background:var(--primary); color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(255,122,69,0.18);">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="plans-row">
+                    <div class="plan-card">
+                        <img src="resources/rome.png" alt="Rome, Italy">
+                        <div class="plan-head">
+                            <h3>Rome, Italy</h3>
+                            <p class="price">$5,42k</p>
+                        </div>
+                        <div class="plan-rating">
+                            <div class="days" aria-label="10 days trip">
+                                <img src="resources/navigation-icon.svg" alt="" aria-hidden="true" width="16"
+                                    height="16">
+                                <span class="rating-value">10 days trip</span>
+                            </div>
+                            <div class="rating" aria-label="Rating 4.8 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <img src="resources/uk.png" alt="London, UK">
+                        <div class="plan-head">
+                            <h3>London, UK</h3>
+                            <p class="price">$2,42k</p>
+                        </div>
+                        <div class="plan-rating">
+                            <div class="days" aria-label="7 days trip">
+                                <img src="resources/navigation-icon.svg" alt="" aria-hidden="true" width="16"
+                                    height="16">
+                                <span class="rating-value">7 days trip</span>
+                            </div>
+                            <div class="rating" aria-label="Rating 4.7 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.7</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-card">
+                        <img src="resources/osaka.png" alt="Osaka, Japan">
+                        <div class="plan-head">
+                            <h3>Osaka, Japan</h3>
+                            <p class="price">$5,42k</p>
+                        </div>
+                        <div class="plan-rating">
+                            <div class="days" aria-label="10 days trip">
+                                <img src="resources/navigation-icon.svg" alt="" aria-hidden="true" width="16"
+                                    height="16">
+                                <span class="rating-value">10 days trip</span>
+                            </div>
+                            <div class="rating" aria-label="Rating 4.8 out of 5">
+                                <img src="resources/star-icon.svg" alt="" aria-hidden="true" width="16" height="16">
+                                <span class="rating-value">4.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="testimonials-left">
+                    <h2 id="testimonials-title" style="text-align: left;">What people say <span class="primary">about
+                            us.</span></h2>
+                    <br>
+                    <p class="muted" style="text-align: left;">Our clients send us smiles for our services — their
+                        stories inspire us every
+                        day.</p>
+                    <br>
+                    <div class="carousel-controls" style="justify-content: flex-start;">
+                        <button class="carousel-prev" aria-label="Previous deals"
+                            style="width:36px; height:36px; border-radius:50%; border:0; background:#fff; box-shadow:0 6px 18px rgba(12,20,30,0.06); display:inline-flex; align-items:center; justify-content:center;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M15 18l-6-6 6-6" stroke="#ff7a45" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="carousel-next" aria-label="Next deals"
+                            style="width:36px; height:36px; border-radius:50%; border:0; background:var(--primary); color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(255,122,69,0.18);">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="testimonial-right">
+                    <div class="testimonial-quote">
+                        <p>“On the Windows talking painted pasture yet its improper motion ours. Sum turn upon the
+                            home so know next.”</p>
+                        <div class="client-meta">
+                            <strong>Mike Taylor</strong>
+                            <span class="muted">Traveler</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-background">
+                        <div class="client-meta" style="position: absolute; bottom: 0;">
+                            <strong>Chris Thomas</strong>
+                            <span class="muted">CEO of Red Button</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-last"></div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog" aria-labelledby="blog-title">
+            <div class="container">
+                <h2 id="blog-title">Get update with <span class="primary">latest blog</span></h2>
+                <br><br>
+                <div class="blog-grid">
+                    <article class="post-card">
+                        <img src="resources/blog-1.png" alt="The amazing difference a year of travelling">
+                        <h3>The Amazing Difference a Year of Travelling .</h3>
+                        <time datetime="2021-07-21">July 21, 2021</time>
+                    </article>
+                    <article class="post-card">
+                        <img src="resources/blog-2.png" alt="Travel far enough, you meet yourself">
+                        <h3>Travel far enough, you meet yourself.</h3>
+                        <time datetime="2021-07-21">July 21, 2021</time>
+                    </article>
+                    <article class="post-card">
+                        <img src="resources/blog-3.png" alt="How to Save Money While visiting Africa.">
+                        <h3>How to Save Money While visiting Africa.</h3>
+                        <time datetime="2021-07-21">July 21, 2021</time>
+                    </article>
+                    <article class="post-card">
+                        <img src="resources/blog-4.png" alt="Reflections on months of travel: Time to Hang">
+                        <h3>Reflections on 5 Months of Travel: Time to Hang</h3>
+                        <time datetime="2021-07-21">July 21, 2021</time>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe" aria-labelledby="subscribe-title">
+            <div class="container subscribe-card">
+                <img class="subscribe-tree" src="resources/footer-tree.svg" alt="" aria-hidden="true">
+                <h2 id="subscribe-title">Subscribe and get exclusive deals & offer</h2>
+                <form class="subscribe-form" aria-label="Subscribe to newsletter">
+                    <div class="subscribe-input">
+                        <img src="resources/mail-icon.svg" alt="" aria-hidden="true">
+                        <label class="visually-hidden" for="email">Email address</label>
+                        <input id="email" name="email" type="email" placeholder="Enter your mail" required>
+                    </div>
+                    <button class="btn primary" type="submit">Subscribe</button>
+                </form>
+                <img class="subscribe-decor" src="resources/footer-circle.svg" alt="" aria-hidden="true">
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a class="brand" href="/" aria-label="Homepage">
+                    <img src="resources/logo.svg" alt="Trabook logo" width="140">
+                </a>
+                <p>Book your trip in minutes, get full control for much longer.</p>
+                <div class="social-row" aria-label="Follow us">
+                    <a class="social-link social-facebook" href="#" aria-label="Facebook"></a>
+
+                    <a class="social-link social-twitter" href="#" aria-label="Twitter"></a>
+
+                    <a class="social-link social-instagram" href="#" aria-label="Instagram"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#press">Press</a></li>
+                    <li><a href="#privacy">Privacy & Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#help">Help/FAQ</a></li>
+                    <li><a href="#support">Support</a></li>
+                    <li><a href="#affiliates">Affiliates</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>More</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#blog">Our Blog</a></li>
+                    <li><a href="#presscentre">Press Centre</a></li>
+                    <li><a href="#lowfare">Low fare tips</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <div class="copyright">Copyright © Trabook 2025. All rights reserved.</div>
+            <div class="footer-terms">
+                <a href="#terms">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            const btn = document.querySelector('.nav-toggle');
+            const menu = document.getElementById('primary-menu');
+            if (!btn || !menu) return;
+            btn.addEventListener('click', () => {
+                const open = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!open));
+                menu.classList.toggle('open');
+            });
+        })();
+
+        // Set min date for travelDate input to disable past dates
+        (function () {
+            const dateInput = document.getElementById('travelDate');
+            if (!dateInput) return;
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            dateInput.min = `${yyyy}-${mm}-${dd}`;
+        })();
+
+        // Toggle reveal for search fields: clicking the button reveals the control
+        (function () {
+            const toggles = document.querySelectorAll('.search-toggle');
+            toggles.forEach((t) => {
+                const field = t.closest('.search-field');
+                if (!field) return;
+                const control = field.querySelector('select, input[type="date"]');
+                t.addEventListener('click', (e) => {
+                    const open = field.classList.toggle('open');
+                    t.setAttribute('aria-expanded', open);
+                    if (open && control) setTimeout(() => control.focus(), 220);
+                });
+                t.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        t.click();
+                    }
+                });
+            });
+
+            // Close open fields when clicking outside the search card
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.search-card')) {
+                    document.querySelectorAll('.search-field.open').forEach((f) => {
+                        f.classList.remove('open');
+                        const btn = f.querySelector('.search-toggle');
+                        if (btn) btn.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
