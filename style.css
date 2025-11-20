@@ -2,23 +2,30 @@
   --font-heading: "Volkhov", serif;
   --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
-  --bg: #fefcfb;
+  --bg: #FEFCFB;
   --surface: #f8fafc;
   --muted: #6b7280;
   --text: #0f172a;
-  --primary: #ff7a45;
-  --white: #ffffff;
-  --black: #000000;
+  --primary: #ff7a45; /* warm orange accent */
+  --accent: #ffb27d;
+    --white: #ffffff;
+    --black: #000000;
   --radius: 12px;
   --container: 1200px;
+  --gap: 1rem;
+  /* Heading size / weight tokens to match design */
   --h1-size: 2.6rem;
   --h1-size-lg: 4rem;
+  --h2-size: 1.9rem;
   --h2-size-lg: 2.2rem;
   --h3-size: 1.05rem;
   --heading-weight-strong: 700;
   --heading-weight-medium: 600;
   --heading-letter-spacing-tight: -0.02em;
 }
+
+*,
+*::before,
 *::after {
   box-sizing: border-box;
 }
@@ -35,6 +42,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Headings use the heading font */
 h1,
 h2,
 h3,
@@ -45,6 +53,7 @@ h6 {
   margin: 0;
 }
 
+/* tuned heading scales and weights */
 h1 {
   font-weight: var(--heading-weight-strong);
   font-size: var(--h1-size);
@@ -101,8 +110,25 @@ p.muted {
   white-space: nowrap;
 }
 
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 6px;
+  transform: translateY(-150%);
+  transition: transform 0.18s;
+}
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Header */
 .site-header {
   background: transparent;
+  /* remove border to match design */
 }
 .header-row {
   display: flex;
@@ -120,15 +146,15 @@ p.muted {
   gap: 1rem;
 }
 .nav-list li a {
-  color: var(--muted);
-  text-decoration: none;
-  padding: 0.35rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.35rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
 }
 .nav-list li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 .nav-toggle {
   background: none;
@@ -141,16 +167,16 @@ p.muted {
   align-items: center;
 }
 .link-muted {
-  color: var(--primary);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 5px 10px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 5px 10px;
 }
 .link-muted:hover {
-  border: 1px solid var(--primary);
-  border-radius: 5px;
-  transition: all 0.1s ease-in-out;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    transition: all 0.1s ease-in-out;
 }
 .btn {
   display: inline-flex;
@@ -163,28 +189,33 @@ p.muted {
   font-weight: 600;
 }
 .btn.primary {
-  background: var(--primary);
-  color: var(--white);
-  box-shadow: 0 2px 8px rgba(255, 122, 69, 0.4);
-  border-radius: 5px;
-  padding: 0.55rem 2rem;
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(255, 122, 69, 0.4);
+    border-radius: 5px;
+    padding: 0.55rem 2rem;
 }
 header .btn.primary:hover {
-  transform: scale(1.1);
-  transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
 }
 .btn.outline {
   background: transparent;
   border: 2px solid var(--primary);
   color: var(--primary);
 }
+.btn.small {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+}
 
-
+/* make header elements visually closer to reference */
 .brand img {
   height: 28px;
   display: block;
 }
 
+/* Desktop: slightly larger nav spacing and center feel */
 @media (min-width: 64rem) {
   .header-row {
     padding: 1.5rem 0;
@@ -204,6 +235,7 @@ header .btn.primary:hover {
   }
 }
 
+/* Hero */
 .hero {
   padding: 3rem 0;
 }
@@ -215,9 +247,9 @@ header .btn.primary:hover {
 }
 .hero-left {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 .hero-left h1 {
   font-size: var(--h1-size);
@@ -234,6 +266,7 @@ header .btn.primary:hover {
   color: var(--primary);
 }
 
+/* Decoration behind hero image: semicircle and floating cards */
 .hero-right {
   position: relative;
   display: flex;
@@ -250,15 +283,15 @@ img.hero-main {
 
 .float-cards {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
+  inset: 0; /* allow children absolute positions inside */
+  pointer-events: none; /* allow clicks to pass through where empty */
   max-width: 520px;
-  margin: auto;
+    margin: auto;
 }
 .floating-card {
   position: absolute;
   background: var(--white);
-  pointer-events: auto;
+  pointer-events: auto; /* enable interaction on the cards */
   padding: 0.55rem 0.7rem;
   border-radius: 10px;
   box-shadow: 0 12px 30px rgba(12, 20, 30, 0.12);
@@ -285,6 +318,7 @@ img.hero-main {
   color: var(--muted);
 }
 
+/* positions tuned to match reference layout */
 .floating-card.pos1 {
   top: 15%;
   left: 4%;
@@ -302,21 +336,22 @@ img.hero-main {
   transform: translate(-35%, -55%);
 }
 
+/* lift on hover to give subtle depth */
 .floating-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 18px 36px rgba(12, 20, 30, 0.14);
 }
 
-.features,
-.testimonials {
-  background: #f7f8fc;
+.features, .testimonials {
+  background: #F7F8FC;
   padding: 4rem 0;
-  position: relative;
+  position: relative; /* allow absolutely positioned decorative plane */
 }
 
 span.primary {
-  color: var(--primary);
+    color: var(--primary);
 }
+/* Features header: heading + plane vector */
 .features .features-header {
   display: flex;
   align-items: center;
@@ -327,7 +362,7 @@ span.primary {
 .features .features-header .features-plane {
   position: absolute;
   top: 2rem;
-  right: 8rem;
+    right: 8rem;
   width: 140px;
   height: auto;
   display: block;
@@ -356,20 +391,52 @@ span.primary {
     opacity: 0.95;
   }
 }
+/* decorative airplanes vector */
+.planes {
+  position: absolute;
+  top: -8%;
+  right: 6%;
+  width: 220px;
+  z-index: 4;
+  opacity: 0.98;
+  transform: translateZ(0);
+  pointer-events: none;
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1), opacity 200ms ease;
+}
 
+/* subtle nudge for motion when hovered/focused */
+.hero-right:hover .planes,
+.hero-right:focus-within .planes {
+  transform: translateZ(0) translateY(-8px);
+}
+
+/* Slightly smaller cards on narrow large screens */
+@media (min-width: 48rem) and (max-width: 64rem) {
+  .hero-decor .semi-circle {
+    width: 360px;
+    height: 360px;
+    right: -6%;
+  }
+}
+
+/* hide the decorative elements on small screens to avoid crowding */
 @media (max-width: 47.99rem) {
+  .hero-decor .semi-circle {
+    display: none;
+  }
   .float-cards {
     display: none;
   }
 }
 
 .search-grid {
-  width: 60%;
-  background: var(--white);
-  margin: 2rem auto;
-  padding: 1rem 2rem;
-  border-radius: var(--radius);
+    width: 60%;
+    background: var(--white);
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
 }
+/* New search-grid/layout styles */
 .search-grid {
   display: flex;
   justify-content: center;
@@ -405,7 +472,7 @@ span.primary {
   padding: 0.75rem;
 }
 .search-card .btn {
-  margin: 0.5rem 0;
+        margin: 0.5rem 0;
 }
 .search-card select,
 .search-card input[type="date"],
@@ -417,6 +484,7 @@ span.primary {
   color: var(--text);
 }
 
+/* controls hidden until the label toggle is activated */
 .search-field > select,
 .search-field > input[type="date"] {
   max-height: 0;
@@ -435,6 +503,7 @@ span.primary {
   pointer-events: auto;
 }
 
+/* label toggle styling */
 .search-toggle {
   cursor: pointer;
   display: inline-flex;
@@ -447,7 +516,7 @@ span.primary {
   color: var(--text);
 }
 .search-toggle::after {
-  content: url("resources/arrow-down.svg");
+  content: url('resources/arrow-down.svg');
   display: inline-block;
   font-size: 0.95rem;
   transition: transform 180ms ease;
@@ -456,6 +525,7 @@ span.primary {
   transform: rotate(180deg);
 }
 
+/* make search layout responsive */
 @media (max-width: 47.99rem) {
   .search-card {
     flex-direction: column;
@@ -475,6 +545,7 @@ span.primary {
   }
 }
 
+/* Cards rows */
 .cards-row {
   display: grid;
   grid-template-columns: 1fr;
@@ -484,11 +555,11 @@ span.primary {
   padding: 0;
 }
 .card {
-  background-color: var(--white);
-  background-image: url("resources/curve-icon.svg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-color: var(--white);
+    background-image: url("resources/curve-icon.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
   padding: 1.25rem;
   border-radius: 8px;
   display: flex;
@@ -498,7 +569,8 @@ span.primary {
 }
 
 .card:nth-child(2) {
-  background-image: url("resources/curve-blue.svg");
+
+    background-image: url("resources/curve-blue.svg");
 }
 
 .card img {
@@ -512,7 +584,7 @@ span.primary {
 }
 
 .card .muted {
-  text-align: left;
+    text-align: left;;
 }
 
 @media (min-width: 48rem) {
@@ -521,6 +593,7 @@ span.primary {
   }
 }
 
+/* Deals */
 .deals {
   padding: 2rem 0;
 }
@@ -531,9 +604,9 @@ span.primary {
   margin: 2rem 6rem;
 }
 .deal-card {
-  position: relative;
-  padding: 0;
-  width: 15rem;
+    position: relative;
+    padding: 0;
+    width: 15rem;
   background: var(--white);
   border-radius: 12px;
   overflow: hidden;
@@ -541,30 +614,30 @@ span.primary {
 }
 
 .deal-card:hover,
-.deal-card:focus-within {
-  box-shadow: 5px 5px 30px rgba(255, 112, 69, 0.23);
+.deal-card:focus-within{
+    box-shadow: 5px 5px 30px rgba(255, 112, 69, 0.23);
 }
 .deal-image {
   position: relative;
 }
 .deal-image img {
-  width: 100%;
-  display: block;
+    width: 100%;
+    display: block;
 }
 .deal-image:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 5;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 5;
 }
 .deal-card h3 {
   margin: 0.6rem;
   font-family: var(--font-body);
-  font-size: 1.1rem;
+    font-size: 1.1rem;
 }
 .meta {
   color: var(--muted);
@@ -575,17 +648,17 @@ span.primary {
   font-size: 14px;
 }
 .meta img {
-  object-fit: scale-down;
-  width: 12px;
-  height: 12px;
+    object-fit: scale-down;
+    width: 12px;
+    height: 12px;
 }
 .highlight {
-  color: var(--primary);
-  font-weight: 700;
-  background: #ffe7db;
-  border-radius: 3px;
-  margin-left: 3px;
-  padding: 3px;
+    color: var(--primary);
+    font-weight: 700;
+    background: #FFE7DB;
+    border-radius: 3px;
+    margin-left: 3px;
+    padding: 3px;
 }
 
 @media (min-width: 64rem) {
@@ -594,6 +667,7 @@ span.primary {
   }
 }
 
+/* Rating styles for deal cards */
 .rating {
   display: inline-flex;
   align-items: center;
@@ -615,6 +689,7 @@ span.primary {
   font-size: 0.9rem;
 }
 
+/* Book now overlay: hidden by default, shown on hover and focus-within */
 .book-now {
   display: none;
   position: absolute;
@@ -642,28 +717,29 @@ span.primary {
 }
 
 .deal-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0 0.5rem;
 }
 .carousel-controls {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
+        display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 .right-position {
-  justify-content: flex-end;
-  margin: 0.2rem 10rem;
+        justify-content: flex-end;
+    margin: 0.2rem 10rem;
 }
+/* Plans */
 .plans {
   padding: 2rem 0;
 }
 .plans-coconut-tree {
-  position: absolute;
-  top: 0rem;
-  right: 19rem;
+      position: absolute;
+    top: 0rem;
+    right: 19rem;
   height: auto;
   display: block;
   pointer-events: none;
@@ -671,11 +747,11 @@ span.primary {
   transform: translateZ(0);
 }
 .plans-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 2rem 10rem;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 10rem;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 .plan-card {
   background: var(--white);
@@ -686,17 +762,17 @@ span.primary {
 }
 .plan-card:hover,
 .plan-card:focus-within {
-  box-shadow: 5px 5px 30px rgba(255, 112, 69, 0.23);
+    box-shadow: 5px 5px 30px rgba(255, 112, 69, 0.23);
 }
-.plan-card > img {
+.plan-card>img {
   width: 100%;
   display: block;
-  border-radius: 15px;
+      border-radius: 15px;
 }
 .plan-card h3 {
   margin: 0.6rem;
   font-family: var(--font-body);
-  font-size: 1.1rem;
+    font-size: 1.1rem;
 }
 .plan-card .price {
   color: var(--primary);
@@ -704,20 +780,20 @@ span.primary {
   margin: 0.4rem;
 }
 .plan-head {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0.3rem 0.2rem;
+        display: flex;
+    justify-content: space-between;
+    margin: 1rem 0.3rem 0.2rem;
 }
 .days {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .plan-rating {
-  margin: 0 0.4rem 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    margin: 0 0.4rem 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media (min-width: 48rem) {
@@ -726,33 +802,33 @@ span.primary {
   }
 }
 
-.testimonials > .container {
-  position: relative;
+/* Testimonials */
+.testimonials>.container {
+  position: relative; 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  margin: 2rem auto;
+  margin:2rem auto;
   width: 55%;
 }
-.testimonials > .container::after {
-  content: "";
-  position: absolute;
-  top: -2rem;
-  right: -100px;
-  width: 110px;
-  height: 120px;
-  display: block;
-  pointer-events: none;
-  z-index: 4;
-  background-image: url(resources/planes-section3.svg);
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: contain;
+.testimonials>.container::after {
+  content: '';
+    position: absolute;
+    top: -2rem;
+    right: -100px;
+    width: 110px;
+    height: 120px;
+    display: block;
+    pointer-events: none;
+    z-index: 4;
+    background-image: url(resources/planes-section3.svg);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-.testimonial-left,
-.testimonial-right {
+.testimonial-left, .testimonial-right {
   margin-top: 3rem;
 }
 
@@ -773,90 +849,101 @@ span.primary {
 }
 .testimonial-background {
   position: absolute;
-  background: var(--white);
-  border-radius: 5px;
-  padding: 0rem 1rem;
-  z-index: 0;
-  top: 3rem;
-  left: 2rem;
-  opacity: 0.7;
-  border: solid 2px #aaa;
-  width: 25rem;
-  height: 13rem;
+    background: var(--white);
+    border-radius: 5px;
+    padding: 0rem 1rem;
+    z-index: 0;
+    top: 3rem;
+    left: 2rem;
+    opacity: 0.7;
+    border: solid 2px #aaa;
+    width: 25rem;
+    height: 13rem;
 }
 
-.testimonial-card {
-  background: var(--surface);
-  padding: 1.25rem 1.2rem;
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(12, 20, 30, 0.06);
-}
-
-.testimonial-quote {
-  background: var(--white);
-  border-radius: 5px;
-  padding: 2rem 1rem;
-  position: relative;
-  z-index: 10;
-  width: 25rem;
-  height: 13rem;
-}
-.testimonial-quote::after {
-  content: "";
-  position: absolute;
-  top: -34px;
-  left: -34px;
-  display: block;
-  width: 68px;
-  height: 68px;
-  background: url("resources/client-img.png") no-repeat center center;
-  margin: 0 auto 0.5rem;
-  border-radius: 100%;
-}
-
-.testimonial-quote p {
-  margin: 0.5rem 0.9rem;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #444444;
-}
-
-.client-photo {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  box-shadow: 0 8px 20px rgba(12, 20, 30, 0.08);
-}
-.client-meta strong {
-  display: block;
-}
-.client-meta {
-  margin: 1.1rem 0.9rem 0.5rem;
-  font-size: 0.8rem;
-}
-
-@media (max-width: 64rem) {
-  .testimonials-grid {
-    grid-template-columns: 1fr 360px;
+  .testimonial-card {
+    background: var(--surface);
+    padding: 1.25rem 1.2rem;
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(12,20,30,0.06);
   }
-}
 
-.testimonials-grid {
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
+  .testimonial-quote {
+    background: var(--white);
+    border-radius: 5px;
+    padding: 2rem 1rem;
+    position: relative;
+    z-index: 10;
+    width: 25rem;
+    height: 13rem;
+  }
+  .testimonial-quote::after {
+    content: '';
+    position: absolute;
+    top: -34px;
+    left: -34px;
+    display: block;
+    width: 68px;
+    height: 68px;
+    background: url('resources/client-img.png') no-repeat center center;
+    margin: 0 auto 0.5rem;
+    border-radius: 100%;
+  }
 
-.testimonial-card {
-  padding: 1rem;
+  .testimonial-quote p {
+    margin: 0.5rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444444;
+  }
+
+
+  .client-photo {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 20px rgba(12,20,30,0.08);
+  }
+  .client-meta strong {
+    display: block;
+  }
+  .client-meta {
+        margin: 1.1rem 0.9rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 64rem) {
+    .testimonials-plane {
+      width: 120px;
+      right: 1rem;
+    }
+    .testimonials-grid {
+      grid-template-columns: 1fr 360px;
+    }
+  }
+
+  @media (max-width: 47.99rem) {
+    .testimonials-plane {
+      display: none; /* hide detailed plane on small screens to avoid overlap */
+    }
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .testimonial-card {
+      padding: 1rem;
+    }
+  }
+/* Blog */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  width: 80%;
-  margin: auto;
+      width: 80%;
+    margin: auto;
 }
 .post-card {
   width: 15rem;
@@ -868,55 +955,59 @@ span.primary {
 }
 .post-card h3 {
   margin: 0.8rem 1.1rem 0.8rem 0.2rem;
-  color: #222;
-  font-family: var(--font-body);
+    color: #222;
+    font-family: var(--font-body);
 }
 .post-card time {
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+/* Subscribe card */
 .subscribe-card {
   background: var(--primary);
   color: var(--white);
   padding: 2rem;
   border-radius: 12px;
   margin: 2rem auto;
-  width: 65%;
+    width: 65%;
 }
 
 .subscribe-card h2 {
-  width: 50%;
-  margin: 2rem auto;
+        width: 50%;
+    margin: 2rem auto;
 }
 
-.subscribe-decor {
-  position: absolute;
-  bottom: 0rem;
-  left: 0;
-  width: 10rem;
-  height: 10rem;
+.subscribe-decor{
+    position: absolute;
+    bottom: 0rem;
+    left: 0;
+    width: 10rem;
+    height: 10rem;
 }
 
-.subscribe-tree {
+.subscribe-tree
+{
   position: absolute;
-  right: 1rem;
-  top: 1rem;
-  width: 5rem;
-  height: 5rem;
+    right: 1rem;
+    top: 1rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 .subscribe-form {
   display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  width: 50%;
-  margin: 2rem auto;
-  background: var(--white);
-  padding: 0.5rem;
-  border-radius: 5px;
+    gap: 0.5rem;
+    align-items: center;
+    width: 50%;
+    margin: 2rem auto;
+    background: var(--white);
+    padding: 0.5rem;
+    border-radius: 5px;
 }
 .subscribe-input {
   display: flex;
-  width: 65%;
+    width: 65%;
 }
 .subscribe-form input {
   flex: 1;
@@ -928,15 +1019,16 @@ span.primary {
   white-space: nowrap;
 }
 
+/* Make subscribe form stack on small screens so the button sits below the input */
 @media (max-width: 64rem) {
   .subscribe-form {
     flex-direction: column;
-    align-items: flex-start;
+            align-items: flex-start;
     gap: 0.5rem;
   }
-  .subscribe-input {
+.subscribe-input {
     width: 100%;
-  }
+}
 
   .subscribe-form input {
     width: 100%;
@@ -950,6 +1042,8 @@ span.primary {
     justify-content: center;
   }
 }
+
+/* Footer */
 .site-footer {
   padding: 2.5rem 0 1.5rem 0;
   background: var(--surface);
@@ -1000,6 +1094,9 @@ span.primary {
   background: var(--primary);
   transform: translateY(-3px);
   color: var(--white);
+}
+
+/* Use SVGs as masks so we can control icon color with background-color reliably */
 .social-link::before {
   content: "";
   display: block;
@@ -1025,7 +1122,9 @@ span.primary {
 .social-link.social-instagram::before {
   -webkit-mask-image: url("resources/instagram.svg");
   mask-image: url("resources/instagram.svg");
+}
 
+/* On hover/focus the inner masked square becomes white so the icon looks white */
 .social-link:hover::before,
 .social-link:focus-visible::before {
   background-color: var(--white);
@@ -1039,6 +1138,8 @@ span.primary {
 .social-link:focus-visible {
   background-color: var(--primary);
 }
+
+/* keyboard focus for accessibility */
 .social-link:focus-visible {
   outline: 3px solid rgba(255, 178, 125, 0.9);
   outline-offset: 3px;
@@ -1080,6 +1181,9 @@ span.primary {
   .footer-grid {
     grid-template-columns: 1.2fr 1fr 1fr 1fr;
   }
+}
+
+/* Footer bottom bar: border top and terms link */
 .footer-bottom {
   border-top: 1px solid rgba(15, 23, 42, 0.06);
   padding-top: 1rem;
@@ -1101,6 +1205,8 @@ span.primary {
 .footer-terms a:hover {
   color: var(--primary);
 }
+
+/* Accessibility: focus-visible and reduced-motion */
 :focus-visible {
   outline: 3px solid rgba(255, 178, 125, 0.9);
   outline-offset: 2px;
@@ -1112,6 +1218,7 @@ span.primary {
   }
 }
 
+/* Responsive overrides for Plans section (no HTML changes) */
 @media (max-width: 64rem) {
   .plans-row {
     grid-template-columns: repeat(2, 1fr);
@@ -1131,7 +1238,7 @@ span.primary {
     max-width: 20rem;
   }
 
-  .plan-card > img {
+  .plan-card>img {
     height: 220px;
     object-fit: cover;
   }
@@ -1145,10 +1252,10 @@ span.primary {
   }
 
   .plans-coconut-tree {
-    display: none;
+    display: none; /* hide decorative tree on small screens */
   }
 
-  .plan-card > img {
+  .plan-card>img {
     height: auto;
     object-fit: cover;
     border-radius: 12px;
@@ -1160,16 +1267,18 @@ span.primary {
   }
 }
 
+/* Responsive overrides for testimonials (no HTML changes) */
 @media (max-width: 64rem) {
-  .testimonials > .container {
+  .testimonials>.container {
     width: 85%;
     gap: 1.5rem;
-    display: flex;
+    display: flex; /* ensure flex for stacking override */
     flex-direction: column;
     align-items: stretch;
   }
 
-  .testimonials > .container::after {
+  .testimonials>.container::after {
+    /* reduce size of decorative plane on medium screens */
     right: -40px;
     top: -16px;
     width: 90px;
@@ -1177,6 +1286,7 @@ span.primary {
     opacity: 0.9;
   }
 
+  .testimonial-left,
   .testimonial-right {
     margin-top: 1.25rem;
   }
@@ -1193,7 +1303,7 @@ span.primary {
 }
 
 @media (max-width: 47.99rem) {
-  .testimonials > .container {
+  .testimonials>.container {
     width: 96%;
     gap: 1rem;
     padding: 1rem 0;
@@ -1202,7 +1312,8 @@ span.primary {
     align-items: stretch;
   }
 
-  .testimonials > .container::after {
+  /* hide the decorative plane on small screens to avoid overlap */
+  .testimonials>.container::after {
     display: none;
   }
 
@@ -1212,7 +1323,7 @@ span.primary {
   }
 
   .testimonial-quote::after {
-    display: none;
+    display: none; /* hide the circular avatar decoration on very small screens */
   }
 
   .testimonial-last {
@@ -1220,7 +1331,9 @@ span.primary {
   }
 }
 
+/* Responsive overrides for Deals section (no HTML changes) */
 @media (max-width: 64rem) {
+  /* show three cards across on larger tablets */
   .carousel {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -1228,7 +1341,7 @@ span.primary {
   }
 
   .deal-card {
-    width: auto;
+    width: auto; /* let grid size the cards */
     margin: 0 auto;
   }
 
@@ -1251,6 +1364,7 @@ span.primary {
 }
 
 @media (max-width: 47.99rem) {
+  /* mobile: stack single column, full width cards */
   .carousel {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -1263,11 +1377,10 @@ span.primary {
   }
 
   .deal-image img {
-    height: auto;
+    height: auto; /* natural image height on narrow screens */
   }
 
-  .deal-head,
-  .meta {
+  .deal-head, .meta {
     padding: 0.6rem 0.8rem;
   }
 
@@ -1282,4 +1395,5 @@ span.primary {
   .card {
     width: 20rem;
   }
+
 }
