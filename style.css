@@ -727,7 +727,7 @@ span.primary {
 }
 .plan-card {
   background: var(--white);
-  border-radius: 12px;
+  border-radius: 15px;
   padding: 0;
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(12, 20, 30, 0.04);
@@ -743,7 +743,6 @@ span.primary {
   border-radius: 15px;
 }
 .plan-card h3 {
-  margin: 0.6rem;
   font-family: var(--font-body);
   font-size: 1.1rem;
 }
@@ -755,7 +754,8 @@ span.primary {
 .plan-head {
   display: flex;
   justify-content: space-between;
-  margin: 1rem 0.3rem 0.2rem;
+  align-items: center;
+  margin: 1rem 0.8rem 0.2rem;
 }
 .days {
   display: flex;
@@ -763,7 +763,7 @@ span.primary {
   align-items: center;
 }
 .plan-rating {
-  margin: 0 0.4rem 0.8rem;
+  margin: 0 0.8rem 0.8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -773,6 +773,9 @@ span.primary {
   font-weight: 500;
   color: var(--muted);
   text-indent: 3px;
+}
+.days .rating-value {
+  text-indent: 6px;
 }
 @media (min-width: 48rem) {
   .plan-card {
