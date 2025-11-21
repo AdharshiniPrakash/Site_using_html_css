@@ -186,8 +186,8 @@ header .btn.primary:focus {
   color: var(--primary);
 }
 .btn.outline:hover {
-    background: rgb(114 114 114 / 10%);
-    box-shadow: 2px 2px 5px #aaa;
+  background: rgb(114 114 114 / 10%);
+  box-shadow: 2px 2px 5px #aaa;
 }
 
 .brand img {
@@ -228,6 +228,11 @@ header .btn.primary:focus {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+}
+@media (max-width: 47.99rem) {
+  .hero-left {
+    width: 90%;
+  }
 }
 .hero-left h1 {
   font-size: var(--h1-size);
@@ -823,7 +828,7 @@ span.primary {
   z-index: 0;
   top: 3rem;
   left: 2rem;
-  opacity: 0.7;
+  opacity: 0.5;
   border: solid 1px #bbb;
   width: 25rem;
   height: 13rem;
@@ -912,6 +917,12 @@ span.primary {
   gap: 2rem;
   width: 80%;
   margin: auto;
+}
+@media (max-width: 47.99rem) {
+  .blog-grid {
+    grid-template-columns: none;
+    justify-items: center;
+  }
 }
 .post-card {
   width: 15rem;
@@ -1066,7 +1077,7 @@ span.primary {
   background: var(--primary);
   transform: translateY(-3px);
   color: var(--white);
-      box-shadow: 0 6px 18px rgba(12, 20, 30, 0.06);
+  box-shadow: 0 6px 18px rgba(12, 20, 30, 0.06);
 }
 
 .social-link::before {
