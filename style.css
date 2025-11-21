@@ -10,7 +10,7 @@
   --white: #ffffff;
   --black: #000000;
   --radius: 12px;
-  --container: 1200px;
+  --container: 1050px;
   --h1-size: 2.6rem;
   --h1-size-lg: 4rem;
   --h2-size-lg: 2.2rem;
@@ -384,12 +384,14 @@ span.primary {
 .search-grid {
   display: flex;
   justify-content: center;
-  margin-top: 1.25rem;
-  width: max-content;
   background: var(--white);
   margin: 2rem auto;
   padding: 1rem 2rem;
   border-radius: var(--radius);
+  max-width: var(--container);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .search-card {
   display: flex;
@@ -549,7 +551,9 @@ span.primary {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  margin: 2rem 6rem;
+  margin: 2rem auto;
+  max-width: var(--container);
+  padding: 0 1rem;
 }
 .carousel-prev,
 .carousel-next {
@@ -698,7 +702,9 @@ span.primary {
 }
 .right-position {
   justify-content: flex-end;
-  margin: 0.2rem 10rem;
+  margin: 0.2rem auto;
+  max-width: var(--container);
+  padding: 0 1rem;
 }
 
 .plans {
@@ -721,7 +727,9 @@ span.primary {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  margin: 2rem 10rem;
+  margin: 2rem auto;
+  max-width: var(--container);
+  padding: 0 1rem;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
 }
@@ -790,7 +798,8 @@ span.primary {
   align-items: center;
   gap: 3rem;
   margin: 2rem auto;
-  width: 55%;
+  max-width: var(--container);
+  padding: 0 1rem;
 }
 .testimonials > .container::after {
   content: "";
@@ -922,9 +931,7 @@ span.primary {
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  width: 80%;
-  margin: auto;
+  gap: 1rem;
 }
 @media (max-width: 47.99rem) {
   .blog-grid {
@@ -950,13 +957,18 @@ span.primary {
   font-size: 0.85rem;
 }
 
+.subscribe {
+  margin: 2rem 0 0;
+  background: linear-gradient(to bottom, var(--bg) 50%, var(--surface) 50%);
+}
 .subscribe-card {
   background: var(--primary);
   color: var(--white);
   padding: 2rem;
   border-radius: 12px;
   margin: 2rem auto;
-  width: 65%;
+  max-width: var(--container);
+  width: 100%;
 }
 
 .subscribe-card h2 {
@@ -1036,9 +1048,8 @@ span.primary {
 }
 
 .site-footer {
-  padding: 2.5rem 0 1.5rem 0;
+  padding: 3.5rem 0 1.5rem 0;
   background: var(--surface);
-  margin-top: 2rem;
 }
 .footer-grid {
   display: grid;
