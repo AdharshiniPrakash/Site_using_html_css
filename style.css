@@ -482,15 +482,19 @@ span.primary {
   }
 }
 
+@media (max-width: 64rem) {
+
+  .search-grid {
+    width: 90%;
+  }
+}
+
 @media (min-width: 64rem) {
   .hero-grid {
     grid-template-columns: 1fr 2fr;
   }
   .hero-left h1 {
     font-size: var(--h1-size-lg);
-  }
-  .search-grid {
-    width: 90%;
   }
 }
 
